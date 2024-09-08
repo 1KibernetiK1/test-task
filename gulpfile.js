@@ -1,5 +1,5 @@
 // Определяем переменную "preprocessor"
-let preprocessor = 'less'; // Выбор препроцессора в проекте - sass или less
+let preprocessor = 'less'; 
 
 // Определяем константы Gulp
 const { src, dest, parallel, series, watch } = require('gulp');
@@ -40,8 +40,8 @@ function browsersync() {
 
 function scripts() {
     return src([ // Берем файлы из источников
-        'node_modules/jquery/dist/jquery.min.js', // Пример подключения библиотеки
-        'src/js/main.js', // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
+        'node_modules/jquery/dist/jquery.min.js',
+        'src/js/menu.js', // Пользовательские скрипты, использующие библиотеку, должны быть подключены в конце
     ])
         .pipe(concat('main.min.js')) // Конкатенируем в один файл
         .pipe(uglify()) // Сжимаем JavaScript
@@ -55,7 +55,7 @@ function styles() {
 	.pipe(concat('main.min.css')) // Конкатенируем в файл app.min.js
 	.pipe(autoprefixer({ overrideBrowserslist: ['last 10 versions'], grid: true })) // Создадим префиксы с помощью Autoprefixer
 	.pipe(cleancss( { level: { 1: { specialComments: 0 } }/* , format: 'beautify' */ } )) // Минифицируем стили
-	.pipe(dest('src/css/')) // Выгрузим результат в папку "app/css/"
+	.pipe(dest('src/css/')) // Выгрузим результат в папку "src/css/"
 	.pipe(browserSync.stream()) // Сделаем инъекцию в браузер
 }
 
@@ -106,7 +106,7 @@ function startwatch() {
 	watch('src/**/*.html').on('change', browserSync.reload);
 
     // Мониторим папку-источник изображений и выполняем images(), если есть изменения
-	watch('app/images/src/**/*', images);
+	watch('src/images/src/**/*', images);
 
 }
 

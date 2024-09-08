@@ -1,4 +1,39 @@
-	// Содержимое файла main.less
-	body {
-	    display: none;
-	}
+//HEADER
+.header {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(0deg, #98C3E8 8.84%, rgba(152, 195, 232, 0) 31.12%);
+
+    .header_content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100vh;
+        padding-left: 6rem;
+    }
+
+    .header_title {
+        width: 40%;
+    }
+
+    .header_heading {
+        font-size: 4rem;
+        color: #1F3F68;
+        margin-bottom: 4rem;
+    }
+
+    .header_description {
+        margin-bottom: 4.75rem;
+        color: #1F3F68;
+        letter-spacing: 0.05em;
+        opacity: .6;
+    }
+
+    .header_image {
+        width: 60%;
+        background: url("../../src/images/dest/header-bg.png") no-repeat center center;
+        background-size: contain;
+        height: 100%;
+    }
+}
+
