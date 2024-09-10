@@ -30,12 +30,14 @@ const openModal = () => {
 	window.onclick = function (event) {
 		if (event.target.contains(modalBlock) && event.target !== modalBlock) {
 			closeModal()
+			body.classList.remove('overflow-hidden')
 		}
 
-		body.classList.remove('overflow-hidden')
+
 	}
 
 }
+
 
 //Валидация и отправка данных
 const formModule = () => {
@@ -46,6 +48,8 @@ const formModule = () => {
 	const nameField = document.querySelector('.name_field')
 	const nameInput = document.querySelector('.name')
 	const errorName = document.querySelector('.error_name')
+	const messageInput = document.querySelector('.message')
+	const errorMessage = document.querySelector('.error_message')
 	const success = document.querySelector('.success')
 
 	function checkEmail() {
@@ -85,15 +89,35 @@ const formModule = () => {
 		nameInput.style.border = '1px solid'
 	}
 
+	function checkMessage(e) {
+		const minMessageLength = 10
+		const messagePattern = /^[a-zA-Z ]*$/
+		if (messageInput && messageInput.value <= minMessageLength) {
+			return (
+				errorMessage.innerHTML = `<p>Too shorten Message</p>`,
+				messageInput.style.border = '1px solid red'
+			)
+		}
+		if (!messageInput.value.match(messagePattern)) {
+			return (
+				errorMessage.innerHTML = `<p>Please enter only text</p>`,
+				messageInput.style.border = '1px solid red'
+			)
+		}
+		errorMessage.innerHTML = ''
+		messageInput.style.border = '1px solid'
+	}
+
 	function submitForm() {
 
-		//Формируем данные для отправки на бек
+		//Формируем данные для отправки на бэк
 		const data = {
 			email: emailInput.value,
 			name: nameInput.value,
+			message: messageInput.value,
 		}
 		//Имитируем проверку на отсутствие ошибок
-		if (!errorEmail.hasChildNodes() && !errorName.hasChildNodes()) {
+		if (!errorEmail.hasChildNodes() && !errorName.hasChildNodes() && !errorMessage.hasChildNodes()) {
 			success.style.display = 'block'
 			success.innerHTML = 'Successfully sent'
 			form.style.display = 'none'
@@ -113,6 +137,7 @@ const formModule = () => {
 		e.preventDefault()
 		checkEmail()
 		checkName(e)
+		checkMessage(e)
 		submitForm()
 	})
 
