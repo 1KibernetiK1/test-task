@@ -4,6 +4,40 @@ document.addEventListener('DOMContentLoaded', (e) => {
 	formModule()
 })
 
+//Работа с модальным окном
+const openModal = () => {
+
+	const element = document.querySelector(".open_modal")
+	const body = document.querySelector('body')
+	const close = document.querySelector(".modal_close")
+	const modalBlock = document.querySelector(".modal_content")
+
+	const closeModal = () => {
+		document.querySelector(".modal").style.display = "none"
+	}
+
+	element.addEventListener("click", function () {
+		document.querySelector(".modal_js").style.display = "block"
+		body.classList.add('overflow-hidden')
+
+	})
+
+	close.addEventListener("click", function () {
+		closeModal()
+		body.classList.remove('overflow-hidden')
+	})
+
+	window.onclick = function (event) {
+		if (event.target.contains(modalBlock) && event.target !== modalBlock) {
+			closeModal()
+		}
+
+		body.classList.remove('overflow-hidden')
+	}
+
+}
+
+//Валидация и отправка данных
 const formModule = () => {
 	const form = document.querySelector('.form')
 	const emailField = document.querySelector('.email_field')
@@ -86,34 +120,6 @@ const formModule = () => {
 
 
 
-const openModal = () => {
-
-	const element = document.querySelector(".open_modal")
-	const body = document.querySelector('body')
-	const close = document.querySelector(".modal_close")
-	const modalBlock = document.querySelector(".modal_content")
-
-	const closeModal = () => {
-		document.querySelector(".modal").style.display = "none"
-	}
-
-	element.addEventListener("click", function () {
-		document.querySelector(".modal_js").style.display = "block"
-		body.classList.add('overflow-hidden')
-	})
-
-	close.addEventListener("click", function () {
-		closeModal()
-		body.classList.remove('overflow-hidden')
-	})
-
-	window.onclick = function (event) {
-		if (event.target.contains(modalBlock) && event.target !== modalBlock) {
-			closeModal()
-		}
-	}
-
-}
 
 
 

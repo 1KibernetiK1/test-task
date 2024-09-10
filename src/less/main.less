@@ -21,14 +21,14 @@
 .header {
     width: 100%;
     height: 110vh;
-    background: linear-gradient(0deg, #98C3E8 8.84%, rgba(152, 195, 232, 0) 31.12%);
+    background: linear-gradient(0deg, #98C3E8 1%, rgba(152, 195, 232, 0) 28%);
+
 
     .header_navmenu {
         width: 100%;
         padding: 15px 0;
         text-align: center;
         font-size: 24px;
-        font-weight: 300;
         display: flex;
         justify-content: space-between;
 
@@ -80,47 +80,36 @@
         height: 100%;
     }
 }
+//HEADER
 
-.btn {
-    border: 0;
-    outline: 0;
-    font-size: 1rem;
-    border-radius: @rounded;
-    width: 220px;
-
-    &:hover {
-        cursor: pointer;
-    }
-
-
-    color: @primary_white;
-    background: #5A98D0;
-    padding: 15px 48px;
-
-}
-
-
-
+//capability
 .capability {
     & h2 {
         margin-bottom: 1.5rem;
+    }
+
+    .title_blue {
+        color: @title_blue;
     }
 
     .capability_wrapper {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        gap: 20px;
     }
 
     .capability_item {
-        width: 32%;
+        
         background: @primary_white;
         padding: 3rem;
         box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
         border-radius: @rounded;
 
+
         & img {
             margin-bottom: 2rem;
+
         }
 
         & h4 {
@@ -157,12 +146,91 @@
         }
     }
 }
+//capability
 
+//Клиенты и Оффер
+.clients {
+    background: @primary_blue;
+    border-top-left-radius: 200px;
+    padding-bottom: 0;
+
+
+    .clients_subtitle {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 6rem;
+
+        & h2 {
+            min-width: 25%;
+
+        }
+
+        & p {
+            margin-left: 3rem;
+            color: @primary_white;
+            line-height: @text_line_height;
+            opacity: .5;
+        }
+    }
+
+    .clients_list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 150px;
+
+
+        .clients_list_item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 25%;
+            padding: 3rem 1rem;
+            transition: .25s linear background;
+
+
+
+            & h4 {
+                text-transform: uppercase;
+                color: @primary_white;
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(31, 63, 104, .2)
+            }
+
+            &:nth-child(-n+4) {
+                border-bottom: @fancy_border;
+            }
+
+            &:nth-child(2) {
+                border-left: @fancy_border;
+            }
+
+            &:nth-child(3) {
+                border-left: @fancy_border;
+                border-right: @fancy_border;
+            }
+
+            &:nth-child(6) {
+                border-left: @fancy_border;
+            }
+
+            &:nth-child(7) {
+                border-left: @fancy_border;
+                border-right: @fancy_border;
+            }
+        }
+    }
+}
 
 .offer {
     background: @secondary_blue;
     border-top-right-radius: 200px;
-    
+    margin-bottom: -100px;
+    margin-right: 100px;
 
     .offer_content {
         display: flex;
@@ -208,6 +276,7 @@
     }
 }
 
+//Прочие стили
 body {
     width: 100%;
     margin: 0 auto;
@@ -229,80 +298,175 @@ section {
     overflow-y: hidden;
 }
 
-.clients {
-    background: @primary_blue;
-    border-top-left-radius: 200px;
-   
+.overflow-open {
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+//Прочие стили
 
-    .clients_subtitle {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 6rem;
+//BUTTONS
+.btn {
+    border: 0;
+    outline: 0;
+    font-size: 1rem;
+    border-radius: @rounded;
+    width: 220px;
 
-        & h2 {
-            min-width: 25%;
-        }
-
-        & p {
-            margin-left: 3rem;
-            color: @primary_white;
-            line-height: @text_line_height;
-            opacity: .5;
-        }
+    &:hover {
+        cursor: pointer;
     }
 
-    .clients_list {
+
+    color: @primary_white;
+    background: #5A98D0;
+    padding: 15px 48px;
+
+}
+//BUTTONS
+
+.title {
+    font-size: 2.25rem;
+    color: white;
+}
+
+//FOOTER
+.footer_other {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: @primary_white;
+    max-width: 975px;
+
+    .footer_info {
+
+        padding: 20px;
+    }
+    
+    .footer_logo {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .footer_logo img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+    
+    .footer_info {
+        display: flex;
+        flex-direction: column;
+        margin-right: 40px;
+    }
+    
+    .footer_info p {
+        margin: 20px 0;
+    }
+    
+    .footer_sections {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer_sections h3 {
+        margin-bottom: 10px;
+    }
+    
+    .footer_sections ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .footer_sections li {
+        margin-bottom: 25px;
+    }
 
+}
+//FOOTER
 
-        .clients_list_item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 25%;
-            padding: 2rem 1rem;
-            transition: .25s linear background;
+// Модальное окно и валидация
+.input {
+    padding: 1rem 1.5rem;
+    border-radius: @rounded;
+    border: 1px solid @secondary_blue;
 
-            & h4 {
-                text-transform: uppercase;
-                color: @primary_white;
-            }
+    .input_wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
 
-            &:hover {
-                cursor: pointer;
-                background-color: rgba(31, 63, 104, .2)
-            }
-
-            &:nth-child(-n+4) {
-                border-bottom: @fancy_border;
-            }
-
-            &:nth-child(2) {
-                border-left: @fancy_border;
-            }
-
-            &:nth-child(3) {
-                border-left: @fancy_border;
-                border-right: @fancy_border;
-            }
-
-            &:nth-child(6) {
-                border-left: @fancy_border;
-            }
-
-            &:nth-child(7) {
-                border-left: @fancy_border;
-                border-right: @fancy_border;
-            }
+        & label {
+            margin-bottom: .25rem;
+            color: @title_blue;
         }
     }
 }
 
+.error {
+    background: red;
+    color: @primary_white;
 
-@media all and (max-width: 768px) {
+    & p {
+        padding: .25rem 1rem
+    }
+}
+
+.success {
+    display: none;
+    background: green;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 200px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+
+    .modal_background {
+        background: rgba(0, 0, 0, .25);
+    }
+
+    .modal_content {
+        position: relative;
+        background: white;
+        max-width: 550px;
+        padding: 3rem;
+        margin: 6rem auto;
+        border-radius: @rounded;
+    }
+
+    .modal_close {
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+        opacity: .5;
+
+        .modal_close_img {
+            width: 30px;
+            height: 30px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            transition: 1s opacity linear;
+            opacity: 1;
+        }
+    }
+
+}
+// Модальное окно и валидация
+
+
+
+//Адаптация
+@media all and (max-width: 1100px) {
 
     .content {
         padding: 0 1.5rem;
@@ -373,103 +537,8 @@ section {
         }
     }
 
-}
-
-.title {
-    font-size: 2.25rem;
-    color: white;
-
-    &--blue {
-        color: @secondary_blue;
-    }
-
-    &--white {
-        color: @primary_white;
-    }
-}
-
-
-
-
-
-
-
-
-
-.input {
-    padding: 1rem 1.5rem;
-    border-radius: @rounded;
-    border: 1px solid @secondary_blue;
-
-    .input_wrapper {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1.5rem;
-
-        & label {
-            margin-bottom: .25rem;
-            color: @title_blue;
-        }
-    }
-}
-
-.error {
-    background: red;
-    color: @primary_white;
-
-    & p {
-        padding: .25rem 1rem
-    }
-}
-
-.success {
-    display: none;
-    background: green;
-    color: white;
-    font-size: 2rem;
-    text-align: center;
-    padding: 1rem;
-}
-
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1050;
-
-    .modal_background {
-        background: rgba(0, 0, 0, .25);
-    }
-
-    .modal_content {
-        position: relative;
-        background: white;
-        max-width: 550px;
-        padding: 3rem;
-        margin: 6rem auto;
-        border-radius: @rounded;
-    }
-
-    .modal_close {
-        position: absolute;
-        top: .5rem;
-        right: .5rem;
-        opacity: .5;
-        
-        .modal_close_img{
-            width: 30px;
-            height: 30px;
-        }
-
-        &:hover {
-            cursor: pointer;
-            transition: 1s opacity linear;
-            opacity: 1;
-        }
+    .footer_other {
+        visibility: hidden;
     }
 
 }
